@@ -15,7 +15,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MaterializeModule } from 'angular2-materialize';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import {HeaderComponent} from './components/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { LoginComponent } from './pages/login/login.component';
@@ -29,7 +29,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 const appRoutes: Routes = [
   { path: '', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'search', component: AboutComponent, canActivate: [AuthGuard] },
-  {path: 'contact', component: ContactComponent},
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: PageNotFoundComponent }
@@ -53,7 +53,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, { enableTracing: true })
   ],
   providers: [DataService, UserService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
