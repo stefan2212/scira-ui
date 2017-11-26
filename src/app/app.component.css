@@ -1,6 +1,8 @@
 
 main {
     flex: 1 0 auto;
+    display: block;
+    min-height: 100vh;
 }
 
 .page-footer{
