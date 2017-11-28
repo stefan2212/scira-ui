@@ -24,6 +24,8 @@ import { AuthService } from './services/auth.service';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PaperComponent } from './components/paper/paper.component';
 import { SearchComponent } from './pages/search/search.component';
+import { SearchProvider } from './services/search/serach-service-provider';
+import { AboutSciraComponent } from './pages/about-scira/about-scira.component';
 
 
 
@@ -50,6 +52,7 @@ const appRoutes: Routes = [
     RegisterComponent,
     PageNotFoundComponent,
     PaperComponent,
+    AboutSciraComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,12 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true })
   ],
-  providers: [DataService, UserService, AuthGuard, AuthService],
+  providers: [DataService,
+    UserService,
+    AuthGuard,
+    AuthService,
+    SearchProvider,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
