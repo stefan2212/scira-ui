@@ -2,48 +2,73 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { UserComponent } from './components/user/user.component';
+// import { UserComponent } from './components/user/user.component';
 
 import { DataService } from './services/data.service';
-import { AboutComponent } from './pages/about/about.component';
+import { UserService } from './services/user.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 import { MaterializeModule } from 'angular2-materialize';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import {HeaderComponent} from './components/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { VisualizeComponent} from './pages/visualize/visualize.component'
 
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './services/auth.service';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PaperComponent } from './components/paper/paper.component';
+import { SearchComponent } from './pages/search/search.component';
+import { SearchProvider } from './services/search/serach-service-provider';
+import { AboutSciraComponent } from './pages/about-scira/about-scira.component';
+
+
+
 const appRoutes: Routes = [
-  {path: '', component: UserComponent},
-  {path: 'search', component: AboutComponent},
-  {path: 'contact', component: ContactComponent},
+  { path: '', component: AboutSciraComponent, canActivate: [AuthGuard] },
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '**', component: PageNotFoundComponent },
   {path: 'visualize', component: VisualizeComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    AboutComponent,
+    AboutSciraComponent,
+    SearchComponent,
     NavBarComponent,
     SideBarComponent,
     ContactComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
+    RegisterComponent,
+    PageNotFoundComponent,
+    PaperComponent,
+    AboutSciraComponent,
     VisualizeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, { enableTracing: true })
   ],
-  providers: [DataService],
+  providers: [DataService,
+    UserService,
+    AuthGuard,
+    AuthService,
+    SearchProvider,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
