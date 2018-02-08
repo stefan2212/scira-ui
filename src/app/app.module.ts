@@ -16,12 +16,13 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import {HeaderComponent} from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { VisualizeComponent} from './pages/visualize/visualize.component'
 
 const appRoutes: Routes = [
   {path: '', component: UserComponent},
   {path: 'search', component: AboutComponent},
-  {path: 'contact', component: ContactComponent}
+  {path: 'contact', component: ContactComponent},
+  {path: 'visualize', component: VisualizeComponent}
 ];
 
 @NgModule({
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     ContactComponent,
     HeaderComponent,
     FooterComponent,
+    VisualizeComponent
   ],
   imports: [
     BrowserModule,

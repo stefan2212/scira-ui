@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc -p src -w",
+    "start": "live-server --open=src",
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -23,13 +24,21 @@
     "@angular/router": "^4.2.4",
     "@types/bootstrap": "^3.3.36",
     "@types/jquery": "^3.2.16",
+    "angular-chart.js": "^1.1.1",
+    "angular2": "^2.0.0-beta.0",
     "angular2-materialize": "^15.1.10",
     "bootstrap": "^4.0.0-beta.2",
     "core-js": "^2.4.1",
+    "d3": "4.13.0",
+    "d3-force": "1.1.0",
+    "d3-sparql": "1.0.0",
     "hammerjs": "^2.0.8",
     "jquery": "^2.2.4",
+    "live-server": "^1.2.0",
     "materialize-css": "^0.100.2",
     "rxjs": "^5.4.2",
+    "systemjs": "^0.20.19",
+    "typescript": "^2.7.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
@@ -52,5 +61,17 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.3.3"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.",
+  "main": "d3sparql.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefan2212/scira-ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/stefan2212/scira-ui/issues"
+  },
+  "homepage": "https://github.com/stefan2212/scira-ui#readme"
 }
