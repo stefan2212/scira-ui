@@ -1,7 +1,11 @@
 export class Paper {
     id: Number;
     title: string;
-    authors: string[];
+    citations: Array<string> = [];
+    authors: Array<string> = [];
+    citedBy: Array<string> = [];
+    desciprtion: string;
+    type: string;
     university: string;
     domain: string;
     publishDate: Date;

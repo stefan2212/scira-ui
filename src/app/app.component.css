@@ -1,9 +1,11 @@
-
 main {
     flex: 1 0 auto;
-    display: block;
-    min-height: 100vh;
 }
 .page-component{
     min-height: 100vh;
 }
+
+.pageContent {
+    display: block;
+    min-height: 100vh;
+  }

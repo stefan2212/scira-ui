@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-// import { UserComponent } from './components/user/user.component';
 
 import { DataService } from './services/data.service';
 import { UserService } from './services/user.service';
@@ -16,7 +15,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { VisualizeComponent} from './pages/visualize/visualize.component'
+import { VisualizeComponent} from './pages/visualize/visualize.component';
 
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -27,17 +26,21 @@ import { PaperComponent } from './components/paper/paper.component';
 import { SearchComponent } from './pages/search/search.component';
 import { SearchProvider } from './services/search/serach-service-provider';
 import { AboutSciraComponent } from './pages/about-scira/about-scira.component';
-
+import { PaperPageComponent } from './pages/paper-page/paper-page.component';
+import {JsonService} from './services/json.service';
+import { GraphviewComponent } from './pages/graphview/graphview.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: AboutSciraComponent, canActivate: [AuthGuard] },
   { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
   { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
+  { path: 'paper/:id', component: PaperPageComponent, canActivate: [AuthGuard] },
+  {path: 'visualize/:id', component: VisualizeComponent, canActivate: [AuthGuard] },
+  {path: 'graph', component: GraphviewComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '**', component: PageNotFoundComponent },
-  {path: 'visualize', component: VisualizeComponent}
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -55,8 +58,11 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     PaperComponent,
     AboutSciraComponent,
-    VisualizeComponent
+    PaperPageComponent,
+    VisualizeComponent,
+    GraphviewComponent,
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
@@ -68,7 +74,9 @@ const appRoutes: Routes = [
     AuthGuard,
     AuthService,
     SearchProvider,
+    JsonService
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

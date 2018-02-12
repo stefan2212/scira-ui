@@ -8,34 +8,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script href="scripts/d3sparql.js"></script>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script>
-    function exec() {
-      var endpoint = d3.select("#endpoint").property("value")
-      var sparql = d3.select("#sparql").property("value")
-      console.log(endpoint)
-      console.log(sparql)
-      d3sparql.query(endpoint, sparql, render)
-    }
-    function render(json) {
-      var config = {
-        "charge": -500,
-        "distance": 50,
-        "width": 1000,
-        "height": 750,
-        "selector": "#result"
-      }
-      console.log(json)
-      d3sparql.forcegraph(json, config)
-    }
-    function exec_offline() {
-      d3.json("cache/dbpedia/proglang_pair.json", render)
-    }
-    function toggle() {
-      d3sparql.toggle()
-    }
-    </script>
+  <!--<script href="scripts/d3sparql.js"></script>-->
+  <!--<script src="http://d3js.org/d3.v3.min.js"></script>-->
+  <!--<script src="scripts/index.js"></script>-->
+  <!--<script>-->
+    <!--function exec() {-->
+
+      <!--var endpoint = d3.select("#endpoint").property("value")-->
+      <!--var sparql = d3.select("#sparql").property("value")-->
+      <!--console.log(endpoint)-->
+      <!--console.log(sparql)-->
+      <!--d3sparql.query(endpoint, sparql, render)-->
+    <!--}-->
+    <!--function render(json) {-->
+      <!--var config = {-->
+        <!--"charge": -500,-->
+        <!--"distance": 50,-->
+        <!--"width": 1000,-->
+        <!--"height": 750,-->
+        <!--"selector": "#result"-->
+      <!--}-->
+      <!--console.log(json);-->
+      <!--// d3.jsonldVis(json, '#graph', { w: 800, h: 600, maxLabelWidth: 250 });-->
+      <!--d3sparql.forcegraph(json, config)-->
+    <!--}-->
+    <!--function exec_offline() {-->
+      <!--d3.json("cache/dbpedia/proglang_pair.json", render)-->
+    <!--}-->
+    <!--function toggle() {-->
+      <!--d3sparql.toggle()-->
+    <!--}-->
+    <!--</script>-->
 </head>
 
 <body>

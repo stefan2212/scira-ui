@@ -1,0 +1,8 @@
+{
+ "/scira": {
+"target": "http://192.168.100.16:8080/scira/rest/search/paper",
+
+"secure": false,
+   "changeOrigin": true
+}
+}
